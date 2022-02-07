@@ -1,5 +1,7 @@
 package com.wtiinfo.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ public class Estado implements Serializable {
     private String nome;
 
     @OneToMany(mappedBy = "estado")
+    @JsonBackReference // nao serializa, transient o estado
     private List<Cidade> cidades = new ArrayList<>();
 
     public Estado() {
