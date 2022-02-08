@@ -1,5 +1,6 @@
 package com.wtiinfo.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.wtiinfo.cursomc.domain.enums.EstadoPagamento;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public abstract class Pagamento implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "pedido_id")
+    @JsonIgnore
     @MapsId // pegar o id 'gerado' da classe de Pedido
     private Pedido pedido;
 
